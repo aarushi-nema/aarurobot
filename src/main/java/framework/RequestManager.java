@@ -1,7 +1,9 @@
+package framework;
+
 import com.google.gson.Gson;
 
 /**
- * RequestManager provides all the functions to process the request
+ * framework.RequestManager provides all the functions to process the request
  * Created by ajay on 9/6/21.
  */
 public class RequestManager {
@@ -21,22 +23,22 @@ public class RequestManager {
     }
 
     public Request process(String jsonText) {
-        //JSON String to Request object conversion
+        //JSON String to framework.Request object conversion
         Request request= getFromText(jsonText);
-        //process the request using the Request object
+        //process the request using the framework.Request object
         return process(request);
     }
 
     public Request process(Request request){
         if(request.getIntent()==null){
             //throw exception if request has no intent
-            request.getResponse().setErrorMessage("Intent is Null");
+            request.getResponse().setErrorMessage("framework.Intent is Null");
             return request;
         }
         Intent tsiIntent = SkillManager.getInstance().getIntent(request.getIntent());
         if (tsiIntent == null) {
             //throw exception if request has invalid intent
-            request.getResponse().setErrorMessage("Invalid Intent ");
+            request.getResponse().setErrorMessage("Invalid framework.Intent ");
             return request;
         }
         request.setTsiIntent(tsiIntent);

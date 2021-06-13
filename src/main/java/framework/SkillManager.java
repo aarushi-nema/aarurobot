@@ -1,10 +1,12 @@
+package framework;
+
 import com.google.gson.Gson;
 
 import java.util.HashMap;
 
 /**
- * SkillManager contains the collections of skills and intents and also validates if the request intent is valid or not (returns null if invalid intent)
- * Skill Manager loads valid skills and intent from json files.
+ * framework.SkillManager contains the collections of skills and intents and also validates if the request intent is valid or not (returns null if invalid intent)
+ * framework.Skill Manager loads valid skills and intent from json files.
  * Created by ajay on 9/6/21.
  */
 public class SkillManager {
