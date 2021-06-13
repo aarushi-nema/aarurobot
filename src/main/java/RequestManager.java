@@ -32,9 +32,7 @@ public class RequestManager {
             //throw exception if request has no intent
             throw new Exception("Intent is null");
         }
-
-
-        Intent tsiIntent = SkillManager.getInstance().getIntent(request);
+        Intent tsiIntent = SkillManager.getInstance().getIntent(request.getIntent());
         if (tsiIntent == null) {
             //throw exception if request has invalid intent
             throw new Exception("Invalid Intent");

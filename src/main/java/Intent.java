@@ -1,3 +1,6 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 /**
  *
  * Created by aarushi on 9/6/21.
@@ -36,9 +39,8 @@ public class Intent implements Cloneable{
     }
 
     public void dump(){
-        System.out.println("\t\tid:"+id);
-        System.out.println("\t\tname:"+name);
-        System.out.println("\t\tskill:"+skill);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        System.out.println(gson.toJson(this));
     }
 
     public String getKey(){

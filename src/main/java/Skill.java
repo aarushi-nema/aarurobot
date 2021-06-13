@@ -1,3 +1,6 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.HashMap;
 
 /**
@@ -34,13 +37,8 @@ public class Skill {
     }
 
     public void dump(){
-        System.out.println("id:"+id);
-        System.out.println("name:"+name);
-        System.out.println("intents:");
-        for(Intent intent: intents.values()){
-            System.out.println("\t"+intent.getId()+":");
-            intent.dump();
-        }
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        System.out.println(gson.toJson(this));
     }
 
     public HashMap<String, Intent> getIntents() {

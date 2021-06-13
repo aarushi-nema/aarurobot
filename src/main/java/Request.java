@@ -1,3 +1,6 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 /**
  * Created by ajay on 9/6/21.
  */
@@ -5,6 +8,11 @@ public class Request {
 
     private Intent intent;
     private Intent tsiIntent;
+    private Response response;
+
+    public Request(){
+        response= new Response();
+    }
 
     public Intent getIntent() {
         return intent;
@@ -15,14 +23,8 @@ public class Request {
     }
 
     public void dump(){
-        if (intent != null) {
-            System.out.println("Requested Intent");
-            intent.dump();
-        }
-        if (tsiIntent != null) {
-            System.out.println("Identified Intent");
-            tsiIntent.dump();
-        }
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        System.out.println(gson.toJson(this));
     }
 
     public Intent getTsiIntent() {
