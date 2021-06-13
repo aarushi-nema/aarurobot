@@ -10,9 +10,8 @@ public class TestRequest {
         //Exception handling for processing of request
         try {
             //We are giving request manager the request for processing
-            RequestManager.getInstance().process(request_text);
-            System.out.println("Processed successfully");
-
+            Request request = RequestManager.getInstance().process(request_text);
+            request.dump();
         }catch (Exception e) {
             System.out.println("Failed : " + e.getMessage());
         }

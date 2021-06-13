@@ -20,25 +20,28 @@ public class RequestManager {
         return request;
     }
 
-    public void process(String jsonText) throws Exception{
+    public Request process(String jsonText) {
         //JSON String to Request object conversion
         Request request= getFromText(jsonText);
         //process the request using the Request object
-        process(request);
+        return process(request);
     }
 
-    public void process(Request request) throws Exception{
+    public Request process(Request request){
         if(request.getIntent()==null){
             //throw exception if request has no intent
-            throw new Exception("Intent is null");
+            request.getResponse().setErrorMessage("Intent is Null");
+            return request;
         }
         Intent tsiIntent = SkillManager.getInstance().getIntent(request.getIntent());
         if (tsiIntent == null) {
             //throw exception if request has invalid intent
-            throw new Exception("Invalid Intent");
+            request.getResponse().setErrorMessage("Invalid Intent ");
+            return request;
         }
         request.setTsiIntent(tsiIntent);
         request.dump();
+        return request;
     }
 
 }

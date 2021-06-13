@@ -14,6 +14,7 @@ public class Request {
         response= new Response();
     }
 
+
     public Intent getIntent() {
         return intent;
     }
@@ -33,5 +34,13 @@ public class Request {
 
     public void setTsiIntent(Intent tsiIntent) {
         this.tsiIntent = tsiIntent;
+    }
+
+    public Response getResponse() {
+        return response;
+    }
+
+    public void setResponse(Response response) {
+        this.response = response;
     }
 }

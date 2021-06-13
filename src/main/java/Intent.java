@@ -1,6 +1,8 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.HashMap;
+
 /**
  *
  * Created by aarushi on 9/6/21.
@@ -9,6 +11,23 @@ public class Intent implements Cloneable{
     String id;
     String name;
     String skill;
+    HashMap<String, Slot> slots;
+
+    public Intent(){
+        slots= new HashMap<String, Slot>();
+    }
+
+    public void addSlot(Slot slot){
+        slots.put(slot.getName(), slot);
+    }
+
+    public HashMap<String, Slot> getSlots() {
+        return slots;
+    }
+
+    public void setSlots(HashMap<String, Slot> slots) {
+        this.slots = slots;
+    }
 
     public String getSkill() {
         return skill;
