@@ -21,8 +21,8 @@ public class SkillManager {
     SkillManager() {
         skills = new HashMap<String, Skill>();
         intents= new HashMap<String, Intent>();
-        registerFromFile("prepaid.json");
-        registerFromFile("radhakripa.json");
+        registerFromFile("skill.prepaid.json");
+        registerFromFile("skill.radhakripa.json");
 
     }
 

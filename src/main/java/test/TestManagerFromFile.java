@@ -1,3 +1,5 @@
+package test;
+
 import framework.SkillManager;
 
 /**
@@ -6,8 +8,8 @@ import framework.SkillManager;
 public class TestManagerFromFile {
     public static void main(String[] args){
 
-        SkillManager.getInstance().registerFromFile("prepaid.json");
-        SkillManager.getInstance().registerFromFile("radhakripa.json");
+        SkillManager.getInstance().registerFromFile("skill.prepaid.json");
+        SkillManager.getInstance().registerFromFile("skill.radhakripa.json");
         SkillManager.getInstance().dump();
 
     }

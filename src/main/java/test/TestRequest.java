@@ -1,3 +1,5 @@
+package test;
+
 import framework.Request;
 import framework.RequestManager;
 
