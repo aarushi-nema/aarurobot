@@ -4,6 +4,7 @@
 public class Request {
 
     private Intent intent;
+    private Intent tsiIntent;
 
     public Intent getIntent() {
         return intent;
@@ -14,6 +15,21 @@ public class Request {
     }
 
     public void dump(){
-        intent.dump();
+        if (intent != null) {
+            System.out.println("Requested Intent");
+            intent.dump();
+        }
+        if (tsiIntent != null) {
+            System.out.println("Identified Intent");
+            tsiIntent.dump();
+        }
+    }
+
+    public Intent getTsiIntent() {
+        return tsiIntent;
+    }
+
+    public void setTsiIntent(Intent tsiIntent) {
+        this.tsiIntent = tsiIntent;
     }
 }

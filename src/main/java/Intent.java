@@ -1,9 +1,11 @@
 /**
- * Created by ajay on 9/6/21.
+ *
+ * Created by aarushi on 9/6/21.
  */
-public class Intent {
+public class Intent implements Cloneable{
     String id;
     String name;
+    String skill;
 
     public String getSkill() {
         return skill;
@@ -12,8 +14,6 @@ public class Intent {
     public void setSkill(String skill) {
         this.skill = skill;
     }
-
-    String skill;
 
     public String getName() {
         return name;
@@ -31,10 +31,17 @@ public class Intent {
         this.id = id;
     }
 
+    public Object clone()throws CloneNotSupportedException{
+        return super.clone();
+    }
+
     public void dump(){
         System.out.println("\t\tid:"+id);
         System.out.println("\t\tname:"+name);
         System.out.println("\t\tskill:"+skill);
     }
 
+    public String getKey(){
+        return getSkill()+"--"+getId();
+    }
 }

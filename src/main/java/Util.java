@@ -1,5 +1,6 @@
 import java.io.File;
-import java.nio.charset.StandardCharsets;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 
 /**
@@ -7,6 +8,24 @@ import java.nio.charset.StandardCharsets;
  */
 public class Util {
     public static String getFileContent(String file) throws Exception {
-        String content = FileUtils.readFileToString(new File(file), StandardCharsets.UTF_8);
+
+        String content = "";
+        Scanner myReader = null;
+        try {
+            ClassLoader loader = Util.class.getClassLoader();
+            File myObj = new File(loader.getResource(file).getFile());
+            myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                content += data+"\n";
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        } finally {
+            if (myReader != null)
+                myReader.close();
+        }
+        return content;
     }
 }
