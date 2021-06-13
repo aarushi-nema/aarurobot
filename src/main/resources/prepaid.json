@@ -1,0 +1,9 @@
+{
+  "id" : "PREPAID",
+  "name": "PREPAID SYSTEM",
+  "intents": {
+    "GET_BALANCE" : {
+      "id": "GET_BALANCE",
+    }
+  }
+}
